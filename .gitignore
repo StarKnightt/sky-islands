@@ -1,0 +1,7 @@
+refs/
+check/
+.claude/
+node_modules/
+*.video.mp4
+*.wav
+Sky Islands - One HTML File.mp4
