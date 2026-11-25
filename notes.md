@@ -520,3 +520,18 @@ which they listed under "holds up":
 Those last items are geometry, not shading. Within one file and a 60 fps budget they would need: a particle-rope
 waterfall, tessellated or parallax-displaced rim soil, a block-fracture pass on the island mesh, and a second grass
 population keyed to slope.
+
+## Version 3 measurements (2026-11-25, RTX 4060, 1920x1080, top quality tier)
+
+- `index.html`: 84,512 bytes (82.53 KiB).
+- Sky, clouds, sun, atmosphere: the shared sky/fog/cloud-height chunk, the atmosphere table, the cloud raymarch and
+  temporal resolve, the composite and the bloom/grade sections are byte-identical to version 2, and two sky-and-cloud
+  frames rendered at the same time and camera are pixel-identical (100.000% of pixels, maximum difference 0).
+- Frame rate, real-time loop, measured while a game (VALORANT) was using about 30% of the same GPU, so these read low:
+  opening view 60.0 fps, waterfall lip 85, mid fall 65, stream 71, soil close-up 82, underside 73, grass toward the
+  sun 74, grass close-up 91, meadow 76, wide pull-back 57.6. Version 2 measured under the same load gave 52-58 fps in
+  the pull-back and 60-73 in the opening view. A measurement on an idle GPU is still owed.
+- Real-time check with a real click: pointer lock engages, W/S, A/D, Space/Shift move the camera, Esc releases, no
+  console or shader errors.
+- Trailer: 59.0 s, 3,540 frames, 1920x1080, 60 fps, H.264 (NVENC) with stereo AAC, 83.6 MB. Mean level -19.9 dB,
+  peak -3.8 dB. First frame fades in from black to open sky in 0.7 s; there is no shot inside cloud.
